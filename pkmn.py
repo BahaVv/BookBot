@@ -19,11 +19,6 @@ def pkmn(received):
         elif argument == "learnset" or argument == "moves" or argument == "learnlist":
             return "#Learnset"
         elif argument == "boop":
-            if name.lower() == "espeon":
-                return 100
-            else:
-                if "espeon" in name.lower():
-                    return 101
                 return 99
         else:
             return ""
@@ -42,10 +37,6 @@ def pkmn(received):
     if append == 99:
         response = ":point_right: "
         append = ""
-    elif append == 100:
-        return "Unfortunately, I am obligated to refuse this command by my creator."
-    elif append == 101:
-        return "Unfortunately, crafty though you may be, I am still obligated to refuse this command."
 
     response += "https://bulbapedia.bulbagarden.net/wiki/" + name + "_(Pok%C3%A9mon)" + append
 
