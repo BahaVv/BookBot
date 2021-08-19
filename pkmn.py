@@ -33,12 +33,10 @@ def pkmn(received):
         append = input_check(name, argument)
         # Check if we got a result. If not, try swapping the arguments
         if not append:
-            print("hit not append")
             name, argument = argument, name
             append = input_check(name, argument)
             # Check if we got a result. If not, give up and put the variables back to normal.
             if not append:
-                print ("hit not not append")
                 name, argument = argument, name
 
     if append == 99:
