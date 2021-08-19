@@ -70,8 +70,8 @@ def reviews(received):
                 caught = "series"
                 platform = "xbox-series-x"
         if "wii" in received:
-            caught = "wii"
-            platform = "wii u"
+            caught = "wii u"
+            platform = "wii-u"
         if "show" in received:
             caught = "shows"
             platform = "tv"
