@@ -15,7 +15,7 @@ def wow(received):
                               description=':sparkles:Woooooooooow!:sparkles:'
                              )
         embed.set_author(
-                         name="Anime Girl", 
+                         name="Childlike Wonder", 
                          url="https://twitter.com/vgdunkey",
                          icon_url="https://cdna.artstation.com/p/assets/images/images/019/293/032/large/kiki-andriansyah-hex-y.jpg?1562838735"
                         )
