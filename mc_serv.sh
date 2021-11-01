@@ -24,6 +24,11 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [ $CMD == "start" ]; then
+    # Check if server exists
+    if [ ! -f "~/mc_serv/$SERV/start-server.sh" ]; then
+        echo "Starting server returned an error! Server start script does not exist."
+	exit 2
+    fi
     # Start specified server
     screen -dmS $SERV
     screen -S $SERV -p 0 -X stuff "pushd ~/mc_serv/$SERV; ./start-server.sh\n"
@@ -68,7 +73,12 @@ if [ $CMD == "info" ]; then
     cat ~/mc_serv/$SERV/server-info.txt
     RC=$?
     if [ $RC -ne 0 ]; then
-        echo "Failed to retrieve server info!"
+	if [ $RC == 1 ]; then
+            echo "Failed to retrieve server info, the server $SERV does not exist!"
+	else
+            echo "Failed to retrieve server info!"
+	fi
+
 	exit $RC
     fi
     exit 0
