@@ -64,7 +64,7 @@ def return_check(RC, cmd):
     failure = {
         'save': 'An error occurred while trying to save server `XYZZY`.\n',
         'start': 'An error occurred while trying to start server `XYZZY`.\n',
-        'stop': 'An error occurred while trying to start server `XYZZY`.\n'
+        'stop': 'An error occurred while trying to stop server `XYZZY`.\n'
     }
     if RC != 0:
         response = failure[cmd]
@@ -84,15 +84,13 @@ def info(serv):
     
     response = "```\n"
     
-    if current_serv == "":
-        response += "There is no server currently running.\n\n"
-    else:
-        response += "The Current Server is: " + current_serv + ".\n\n"
+    if current_serv != "":
+        response += "The server " + current_serv + " is currently running.\n\n"
 
     if serv == "":
         serv = current_serv
 
-    response += "Server info for " + serv + ":\n"
+    response += "Description for " + serv + ":\n"
 
     result = subprocess.run(['./mc_serv.sh', '-s', serv, '-c', 'info'], stdout=subprocess.PIPE)
     response += result.stdout.decode('utf-8')
