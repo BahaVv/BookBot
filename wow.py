@@ -5,7 +5,7 @@ from random import randint
 
 def wow(received):
     seed()
-    selector = randint(1, 3)
+    selector = randint(1, 5)
 
     if selector == 1:
         embed = discord.Embed(
@@ -52,6 +52,37 @@ def wow(received):
                         )
         embed.set_thumbnail(
                             url="https://i.ytimg.com/vi/LtNvVYFn79Q/mqdefault.jpg"
+                           )
+
+    if selector == 4:
+        embed = discord.Embed(
+                              color=discord.Colour.random(),
+                              title='wohw.',
+                              url='https://youtu.be/TRIwAHX3aHM',
+                              description="wowh."
+                             )
+        embed.set_author(
+                         name="nOwen Wilson", 
+                         url="https://en.wikipedia.org/wiki/Owen_Wilson",
+                         icon_url="https://en.wikipedia.org/wiki/Owen_Wilson#/media/File:Owen_Wilson_Cannes_2011.jpg"
+                        )
+        embed.set_thumbnail(
+                url="https://thumbs.dreamstime.com/b/vector-illusration-lettering-wow-word-lettering-wow-word-vector-illusration-168640093.jpg"
+
+    if selector == 5:
+        embed = discord.Embed(
+                              color=discord.Colour.random(),
+                              title='Waowh.',
+                              url='https://youtu.be/-0WSkGVlt7Q',
+                              description="waowh."
+                             )
+        embed.set_author(
+                         name="Wow Guy", 
+                         url="https://en.wikipedia.org/wiki/Eddy_Wally",
+                         icon_url="https://en.wikipedia.org/wiki/Eddy_Wally#/media/File:EddyWallyBertHeymans.jpg"
+                        )
+        embed.set_thumbnail(
+                         url="https://i.ytimg.com/vi/Xm_dS-wEFvs/maxresdefault.jpg"
                            )
 
     return embed

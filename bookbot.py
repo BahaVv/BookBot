@@ -5,6 +5,7 @@ import os
 import re
 
 # Module Imports
+from mc import mc
 from pkmn import pkmn
 from reviews import reviews
 from steam import steam
@@ -23,20 +24,21 @@ bot = commands.Bot(command_prefix='!')
 
 def help(received):
     response = "```\n"
-    response += "Available Commands:\n\n"
+    response += "Available Commands for BookBot:\n\n"
     response += "!help: Display this help text!\n"
+    response += "!mc: Manage minecraft servers. Try !mc help for more info.\n"
     response += "!pkmn: Get the page of a pokemon. Can take stats, boop, or moves/learnlist/learnset as an argument.\n"
     response += "!reviews: Search metacritic. Can specify tv, movies, or a game console to try for a direct link.\n"
     response += "!steam: Search for any game on steam. Can also be activated by putting any words in {curly braces}.\n"
     response += "!wow: ☆Wow!☆\n"
-    response += "```"
+    response += "```\n"
     return response
 
 @client.event
 async def on_ready():
     guild = discord.utils.get(client.guilds, name=GUILD)
     print(client.user.name + " has connected to Discord!")
-    print("Connected to Server: " + guild.name + "id: (" + str(guild.id) + ")")
+    print("Connected to Server: " + guild.name + " id: (" + str(guild.id) + ")")
 
 @client.event
 async def on_message(message):
@@ -45,10 +47,11 @@ async def on_message(message):
 
     modules = {
         'help': help,
-        'steam': steam,
+        'mc': mc,
         'pkmn': pkmn,
         'reviews': reviews,
-        'wow': wow,
+        'steam': steam,
+        'wow': wow
     }
 
     command = ""
@@ -69,7 +72,7 @@ async def on_message(message):
     try:
         # Check if the message matches a known command
         response = modules[command](substring)
-    except:
+    except Exception as ex:
         # No command match, parse to see if any bot searches are embedded in the message
         game = re.search(r"\{(.*?)\}", message.content)
         if game:
