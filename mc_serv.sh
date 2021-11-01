@@ -25,7 +25,7 @@ done
 
 if [ $CMD == "start" ]; then
     # Check if server exists
-    if [ ! -f "~/mc_serv/$SERV/start-server.sh" ]; then
+    if [ ! -f ~/mc_serv/$SERV/start-server.sh ]; then
         echo "Starting server returned an error! Server start script does not exist."
 	exit 2
     fi
