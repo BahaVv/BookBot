@@ -39,10 +39,8 @@ def reviews(received):
         caught = matches[0]
         try:
             # Check if the platform matches a special case
-            print("try!")
             platform = platforms[caught]
         except:
-            print("except!")
             # Does not match a special case, just set directly
             platform = caught
 
